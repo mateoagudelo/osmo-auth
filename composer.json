@@ -1,0 +1,20 @@
+{
+    "name": "osmo/auth",
+    "description": "Authentication for PHP 8. Secure and easy.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Osmo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mateo Agudelo",
+            "email": "nocc322@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}
