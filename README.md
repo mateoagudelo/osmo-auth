@@ -83,6 +83,14 @@ $auth->make($auth->input('email'), $auth->input('password'));
 
 ### Redirect on successful login
 
+To redirect user, you need pass the callback function:
+
+```php
+$auth->make($auth->inputEmailAddress(), $auth->input('password'), 'md5', function (){
+    Osmo\Response::redirect('/');
+});
+```
+
 ### Verify user login
 
 You can check if a user is logged in, with the following function:

@@ -59,7 +59,7 @@ class Auth
         return false;
     }
 
-    public function make(string|null $field, string|null $password, $method = '', $callback = null)
+    public function make(string|null $field, string|null $password, $method = '', callable $callback = null): mixed
     {
         $que = $this->connection->prepare('SELECT * FROM '.$this->class->getTable().' WHERE '.$this->data[0].' = :'.$this->data[0]);
         $que->bindParam(':'.$this->data[0], $field, \PDO::PARAM_STR);
@@ -72,6 +72,11 @@ class Auth
             if($this->verify($password, $row[$this->data[1]], $method)) {
                 //Create sessions
                 SessionManager::make($row, $this->to_session, $this->data[1]);
+
+                if(is_callable($callback)) {
+                    return $callback();
+                }
+
                 return true;
             }
 
