@@ -4,7 +4,7 @@
 
 <p align="center">
 <a href="https://packagist.org/packages/osmo/auth"><img src="https://poser.pugx.org/osmo/auth/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/osmo/auth"><img src="https://poser.pugx.org/osmo/auth/v1.0.0/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/osmo/auth"><img src="https://poser.pugx.org/osmo/auth/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/osmo/auth"><img src="https://poser.pugx.org/osmo/auth/license.svg" alt="License"></a>
 </p>
 
