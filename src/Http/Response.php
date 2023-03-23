@@ -1,6 +1,6 @@
 <?php
 
-namespace Osmo;
+namespace Osmo\Http;
 
 class Response
 {
@@ -11,5 +11,10 @@ class Response
         }
 
         return header('Location: /');
+    }
+
+    public static function back(): mixed
+    {
+        return header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

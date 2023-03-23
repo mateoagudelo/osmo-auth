@@ -10,7 +10,6 @@ class Auth
     private Database $class;
     protected array $data = [];
     protected $to_session;
-    public array $errors = [];
 
     public function __construct(mixed $con, array $data = [], array|null $to_session = null)
     {
@@ -82,52 +81,7 @@ class Auth
 
         }
 
-        return header('Location: ' . $_SERVER['HTTP_REFERER']);
-    }
-
-    public function errors(): array
-    {
-        return $this->errors = [];
-    }
-
-    public function input($name = null, $default = null): mixed
-    {
-        if(!empty($name) AND !is_null($name) AND isset($_POST[$name])) {
-            return $_POST[$name];
-        }
-
-        return $default;
-    }
-
-    public function inputEmailAddress(string|null $name = null)
-    {
-        if(!empty($name) AND !is_null($name) AND isset($_POST[$name])) {
-            return htmlspecialchars(filter_var($_POST[$name], FILTER_SANITIZE_EMAIL), ENT_QUOTES);
-        } else {
-            foreach (['email', 'mail', 'email_address', 'correo', 'correo_electronico'] as $input) {
-                if(isset($_POST[$input])) {
-                    return htmlspecialchars(filter_var($_POST[$input], FILTER_SANITIZE_EMAIL), ENT_QUOTES);
-                }
-            }
-        }
-    }
-
-    public function param($name = null, $default = null): mixed
-    {
-        if(!empty($name) AND !is_null($name) AND isset($_GET[$name])) {
-            return $_GET[$name];
-        }
-
-        return $default;
-    }
-
-    public function isPost(): bool
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            return true;
-        }
-
-        return false;
+        return Osmo\Http\Response::back();
     }
 
 }
